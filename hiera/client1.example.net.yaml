@@ -1,0 +1,11 @@
+classes:
+  - nfs
+nfs::export:
+  vol1:
+    path: '/vol1'
+    acl: '192.168.50.0/24'
+    options: 'rw,sync,no_root_squash'
+  vol22:
+    path: '/vol2'
+    acl: '192.168.50.0/24'
+    options: 'rw,sync,no_root_squash'

@@ -1,0 +1,12 @@
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: '/vagrant/hiera'
+:hierarchy:
+#  - "%{::clientcert}"
+  - "%{::fqdn}"
+#  - "%{::custom_location}"
+#  - "%{::domain}"
+#  - "%{::operatingsystem}"
+#  - "common"
