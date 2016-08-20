@@ -3,7 +3,7 @@ sudo: false
 language: ruby
 #bundler_args: --without system_tests
 script:
-  - bundle exec rspec rake test
+  - rake test
 matrix:
   fast_finish: true
   include:
