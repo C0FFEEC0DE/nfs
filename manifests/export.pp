@@ -1,5 +1,10 @@
 # Export a specific file share via NFS
-define nfs::export($path,$acl,$options='') {
+define nfs::export(
+  $path,
+  $acl,
+  $options=''
+  ) {
+
   include nfs::server
 
   file { $path:

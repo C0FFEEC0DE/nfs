@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vbox.memory = 512
 #   vbox.cpus = 2
   end
+  config.vm.synced_folder "hiera", "/vagrant/hiera"
 
   if Vagrant.has_plugin?('vagrant-cachier')
     config.cache.scope = :box
@@ -23,8 +24,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :puppet do |puppet|
     puppet.environment_path = '.vagrant_puppet/environments'
     puppet.environment = 'vagrant'
+#    puppet.options = '--verbose --debug'
     puppet.options = '--verbose'
-#    puppet.hiera_config_path = "hiera.yaml"
+    puppet.hiera_config_path = "hiera.yaml"
   end
 
   config.vm.define "client1" do |buildclient1|
