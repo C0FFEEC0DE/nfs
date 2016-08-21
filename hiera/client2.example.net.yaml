@@ -1,2 +1,14 @@
+---
 classes:
-  - nfs
+  - nfs::client::mounts
+nfs::client::mounts::share:
+  vol1:
+    ensure: 'present'
+    share: '/vol1'
+    server: '192.168.50.4'
+    mountpoint: '/vol1'
+  vol2:
+    ensure: 'present'
+    share: '/vol2'
+    server: '192.168.50.4'
+    mountpoint: '/vol2'
