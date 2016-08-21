@@ -30,7 +30,7 @@ vagrant provision client2 - for host client2
 
 ```ruby
 Vagrant
-Vagrant plugin run: vagrant plugin install vagrant-serverspec
+Vagrant plugin install run: vagrant plugin install vagrant-serverspec
 rvm
 bundler
 ```
