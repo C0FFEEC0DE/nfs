@@ -27,6 +27,7 @@ case $ensure {
       device  => "${server}:/${share}",
       require => [Exec["create ${real_mountpoint} and parents"]],
       fstype  => 'nfs',
+      options => $client_options
     }
 
   }
