@@ -2,7 +2,7 @@
 ## Description
 
 Usage examples:
-
+```ruby
 node 'client1.example.net' {
   nfs::export {'vol1':
     path    => '/vol1',
@@ -19,7 +19,7 @@ node 'client2.example.net' {
     mountpoint => '/vol1',
   }
 }
-
+```
 ## Requirements
 
 ## Platform
