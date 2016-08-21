@@ -29,4 +29,13 @@ describe 'nfs-kernel-server' do
   describe file('/etc/exports.d/vol2') do
   it { should contain '/vol2 192.168.50.0/24(rw,sync,no_root_squash)' }
   end
+
+  describe command('echo "123" > /vol1/testdata') do
+  its(:exit_status) { should eq 0 }
+  end
+
+  describe command('echo "123" > /vol2/testdata') do
+  its(:exit_status) { should eq 0 }
+  end
+
 end
