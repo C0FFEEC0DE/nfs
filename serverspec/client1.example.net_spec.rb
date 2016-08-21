@@ -16,4 +16,17 @@ describe 'nfs-kernel-server' do
   describe file('/vol2') do
     it { should be_directory }
   end
+
+  describe file('/etc/exports') do
+  it { should contain '/vol1 192.168.50.0/24(rw,sync,no_root_squash)' }
+  it { should contain '/vol2 192.168.50.0/24(rw,sync,no_root_squash)' }
+  end
+
+  describe file('/etc/exports.d/vol1') do
+  it { should contain '/vol1 192.168.50.0/24(rw,sync,no_root_squash)' }
+  end
+
+  describe file('/etc/exports.d/vol2') do
+  it { should contain '/vol2 192.168.50.0/24(rw,sync,no_root_squash)' }
+  end
 end
