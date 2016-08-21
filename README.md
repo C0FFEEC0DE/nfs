@@ -20,7 +20,20 @@ node 'client2.example.net' {
   }
 }
 ```
+
+Run serverspec tests:
+```ruby
+vagrant provision client1 - for host client1
+vagrant provision client2 - for host client2
+```
 ## Requirements
+
+```ruby
+Vagrant
+Vagrant plugin run: vagrant plugin install vagrant-serverspec
+rvm
+bundler
+```
 
 ## Platform
 

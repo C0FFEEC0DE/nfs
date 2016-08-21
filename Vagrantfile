@@ -30,21 +30,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "client1" do |buildclient1|
     buildclient1.vm.hostname = "client1.example.net"
     buildclient1.vm.network "private_network", ip: "192.168.50.4"
+    config.vm.provision :serverspec do |client1|
+        client1.pattern = 'serverspec/client1.example.net_spec.rb'
+    end
   end
 
   config.vm.define "client2" do |buildclient2|
     buildclient2.vm.hostname = "client2.example.net"
     buildclient2.vm.network "private_network", ip: "192.168.50.5"
+    config.vm.provision :serverspec do |client2|
+        client2.pattern = 'serverspec/client2.example.net_spec.rb'
+    end
   end
-
-
-#  config.vm.provision :serverspec do |spec|
-#    spec.pattern = 'serverspec/*_spec.rb'
-#  end
 
 end
 
-#unless Vagrant.has_plugin?('vagrant-serverspec')
-#  raise "\n\n'vagrant-serverspec' is NOT installed." +
-#        "\nTo install, run: 'vagrant plugin install vagrant-serverspec'."
-#end
+unless Vagrant.has_plugin?('vagrant-serverspec')
+  raise "\n\n'vagrant-serverspec' is NOT installed." +
+        "\nTo install, run: 'vagrant plugin install vagrant-serverspec'."
+end
